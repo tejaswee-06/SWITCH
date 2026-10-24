@@ -1,0 +1,35 @@
+{
+  "name": "switch-smart-home-verification",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node tests/sim.test.mjs && node tests/app.test.mjs && node tests/geometry.test.mjs && node tests/canonical.test.mjs && node tests/assistant.test.mjs",
+    "test:sim": "node tests/sim.test.mjs",
+    "test:app": "node tests/app.test.mjs",
+    "test:geometry": "node tests/geometry.test.mjs",
+    "backend:dev": "cd switch_backend && python -m app",
+    "backend:test": "cd switch_backend && python -m pytest",
+    "test:canonical": "node tests/canonical.test.mjs",
+    "test:integration": "node tests/backend_store.test.mjs",
+    "test:all": "npm test && npm run test:integration && npm run backend:test",
+    "contract:sync": "node tools/sync_contract.mjs",
+    "e2e": "node tools/e2e_journey.mjs http://127.0.0.1:5173 http://127.0.0.1:8000"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.17.10",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0",
+    "three": "^0.171.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.5"
+  }
+}
