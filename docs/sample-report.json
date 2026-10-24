@@ -1,0 +1,1185 @@
+{
+  "disclaimer": "SIMULATED DEMO — modeled scenarios only; not a certification of the physical home.",
+  "runId": "RUN-0002",
+  "label": "Regression rerun",
+  "simulator": "switch-sim/2.1.0",
+  "householdId": "casa-verde-demo",
+  "routine": {
+    "id": "goodnight",
+    "version": "v3-candidate+guard",
+    "name": "Goodnight"
+  },
+  "base": {
+    "id": "goodnight",
+    "version": "v2-guarded"
+  },
+  "diff": {
+    "rows": [
+      {
+        "step": 0,
+        "type": "same",
+        "before": "Living room lights → OFF",
+        "after": "Living room lights → OFF",
+        "beforeRaw": {
+          "do": "power",
+          "device": "livingLight",
+          "on": false
+        },
+        "afterRaw": {
+          "do": "power",
+          "device": "livingLight",
+          "on": false
+        }
+      },
+      {
+        "step": 1,
+        "type": "same",
+        "before": "Kitchen lights → OFF",
+        "after": "Kitchen lights → OFF",
+        "beforeRaw": {
+          "do": "power",
+          "device": "kitchenLight",
+          "on": false
+        },
+        "afterRaw": {
+          "do": "power",
+          "device": "kitchenLight",
+          "on": false
+        }
+      },
+      {
+        "step": 2,
+        "type": "same",
+        "before": "Hallway lights → OFF  unless Hallway is occupied",
+        "after": "Hallway lights → OFF  unless Hallway is occupied",
+        "beforeRaw": {
+          "do": "power",
+          "device": "hallwayLight",
+          "on": false,
+          "guard": {
+            "type": "unlessOccupied",
+            "room": "hallway"
+          }
+        },
+        "afterRaw": {
+          "do": "power",
+          "device": "hallwayLight",
+          "on": false,
+          "guard": {
+            "type": "unlessOccupied",
+            "room": "hallway"
+          }
+        }
+      },
+      {
+        "step": 3,
+        "type": "same",
+        "before": "Television → OFF",
+        "after": "Television → OFF",
+        "beforeRaw": {
+          "do": "power",
+          "device": "tv",
+          "on": false
+        },
+        "afterRaw": {
+          "do": "power",
+          "device": "tv",
+          "on": false
+        }
+      },
+      {
+        "step": 4,
+        "type": "same",
+        "before": "Security system → ARMED",
+        "after": "Security system → ARMED",
+        "beforeRaw": {
+          "do": "power",
+          "device": "security",
+          "on": true
+        },
+        "afterRaw": {
+          "do": "power",
+          "device": "security",
+          "on": true
+        }
+      }
+    ],
+    "text": "--- goodnight@v2-guarded\n+++ goodnight@v3-candidate+guard\n  0: Living room lights → OFF\n  1: Kitchen lights → OFF\n  2: Hallway lights → OFF  unless Hallway is occupied\n  3: Television → OFF\n  4: Security system → ARMED",
+    "changed": 0
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "version": 1,
+      "title": "Security system armed after Goodnight"
+    },
+    {
+      "id": "REQ-002",
+      "version": 1,
+      "title": "Living room lights off after Goodnight"
+    },
+    {
+      "id": "REQ-003",
+      "version": 1,
+      "title": "Keep Hallway light on while occupied"
+    }
+  ],
+  "skipped": [],
+  "scenarios": [
+    {
+      "id": "goodnight-hallway-occupied",
+      "version": "v1",
+      "name": "Goodnight with someone in the hallway",
+      "startClock": "23:00:00",
+      "edgeCase": false
+    },
+    {
+      "id": "goodnight-house-empty",
+      "version": "v1",
+      "name": "Goodnight with nobody home",
+      "startClock": "23:00:00",
+      "edgeCase": false
+    }
+  ],
+  "replays": {
+    "goodnight-hallway-occupied": {
+      "scenarioId": "goodnight-hallway-occupied",
+      "scenarioVersion": "v1",
+      "routine": "goodnight@v3-candidate+guard",
+      "trace": [
+        {
+          "seq": 1,
+          "t": 5,
+          "kind": "motion",
+          "room": "hallway",
+          "from": false,
+          "to": true,
+          "source": "scenario",
+          "routine": null,
+          "step": null
+        },
+        {
+          "seq": 2,
+          "t": 5,
+          "kind": "occupancy",
+          "room": "hallway",
+          "from": false,
+          "to": true,
+          "via": "motion",
+          "source": "scenario",
+          "routine": null,
+          "step": null
+        },
+        {
+          "seq": 3,
+          "t": 5,
+          "kind": "routine_start",
+          "routine": "goodnight@v3-candidate+guard",
+          "source": "scenario",
+          "step": null
+        },
+        {
+          "seq": 4,
+          "t": 5,
+          "kind": "device",
+          "device": "livingLight",
+          "room": "living",
+          "from": true,
+          "to": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard",
+          "step": 0
+        },
+        {
+          "seq": 5,
+          "t": 5,
+          "kind": "device",
+          "device": "kitchenLight",
+          "room": "kitchen",
+          "from": true,
+          "to": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard",
+          "step": 1
+        },
+        {
+          "seq": 6,
+          "t": 5,
+          "kind": "condition",
+          "step": 2,
+          "guard": {
+            "type": "unlessOccupied",
+            "room": "hallway"
+          },
+          "device": "hallwayLight",
+          "value": true,
+          "ok": false,
+          "unknown": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard"
+        },
+        {
+          "seq": 7,
+          "t": 5,
+          "kind": "step_skipped",
+          "step": 2,
+          "action": "power",
+          "device": "hallwayLight",
+          "guard": {
+            "type": "unlessOccupied",
+            "room": "hallway"
+          },
+          "unknown": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard"
+        },
+        {
+          "seq": 8,
+          "t": 5,
+          "kind": "routine_end",
+          "routine": "goodnight@v3-candidate+guard",
+          "source": "scenario",
+          "step": null
+        }
+      ],
+      "results": [
+        {
+          "requirement": "REQ-001",
+          "version": 1,
+          "title": "Security system armed after Goodnight",
+          "room": "hallway",
+          "device": "security",
+          "scenario": "goodnight-hallway-occupied",
+          "result": "PASS",
+          "reason": "Security system: ARMED after Goodnight (as required)",
+          "evidence": {
+            "seq": 8,
+            "t": 5,
+            "kind": "routine_end",
+            "routine": "goodnight@v3-candidate+guard",
+            "source": "scenario",
+            "step": null
+          }
+        },
+        {
+          "requirement": "REQ-002",
+          "version": 1,
+          "title": "Living room lights off after Goodnight",
+          "room": "living",
+          "device": "livingLight",
+          "scenario": "goodnight-hallway-occupied",
+          "result": "PASS",
+          "reason": "Living room lights: OFF after Goodnight (as required)",
+          "evidence": {
+            "seq": 4,
+            "t": 5,
+            "kind": "device",
+            "device": "livingLight",
+            "room": "living",
+            "from": true,
+            "to": false,
+            "source": "scenario",
+            "routine": "goodnight@v3-candidate+guard",
+            "step": 0
+          }
+        },
+        {
+          "requirement": "REQ-003",
+          "version": 1,
+          "title": "Keep Hallway light on while occupied",
+          "room": "hallway",
+          "device": "hallwayLight",
+          "scenario": "goodnight-hallway-occupied",
+          "result": "PASS",
+          "reason": "Hallway was occupied and Hallway lights was never turned OFF"
+        }
+      ],
+      "hash": "f215666f",
+      "setupEvents": 0,
+      "initial": {
+        "devices": {
+          "livingLight": {
+            "on": true
+          },
+          "kitchenLight": {
+            "on": true
+          },
+          "bedroomLight": {
+            "on": false
+          },
+          "bedroom2Light": {
+            "on": false
+          },
+          "bedroom3Light": {
+            "on": false
+          },
+          "bathroomLight": {
+            "on": false
+          },
+          "hallwayLight": {
+            "on": true
+          },
+          "patioLight": {
+            "on": false
+          },
+          "fanLiving": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom1": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom2": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom3": {
+            "on": false,
+            "speed": "off"
+          },
+          "ac": {
+            "on": true,
+            "mode": "cool",
+            "target": 22,
+            "fan": "medium",
+            "duty": 0.8
+          },
+          "acBedroom1": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom2": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom3": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "tv": {
+            "on": false
+          },
+          "purifier": {
+            "on": true
+          },
+          "coffee": {
+            "on": false
+          },
+          "security": {
+            "on": true
+          },
+          "doorLiving": {
+            "open": false
+          },
+          "doorBedroom1": {
+            "open": false
+          },
+          "doorBedroom2": {
+            "open": false
+          },
+          "doorBedroom3": {
+            "open": false
+          },
+          "doorRear": {
+            "open": false
+          },
+          "doorBathroom": {
+            "open": false
+          }
+        },
+        "rooms": {
+          "living": {
+            "temp": 23.77203109383196,
+            "humidity": 46.033305567127215,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "kitchen": {
+            "temp": 24.61775803566224,
+            "humidity": 51.022897577399974,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom": {
+            "temp": 22.423862360421147,
+            "humidity": 43.039550360963574,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom2": {
+            "temp": 24.01942285150558,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom3": {
+            "temp": 24.218867912891138,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bathroom": {
+            "temp": 23.121920075270587,
+            "humidity": 57.010407989727256,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "hallway": {
+            "temp": 24.51803550496947,
+            "humidity": 48.029142371236325,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "patio": {
+            "temp": 29.00554938614445,
+            "humidity": 60.004163195890904,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          }
+        },
+        "t": 5
+      },
+      "final": {
+        "devices": {
+          "livingLight": {
+            "on": false
+          },
+          "kitchenLight": {
+            "on": false
+          },
+          "bedroomLight": {
+            "on": false
+          },
+          "bedroom2Light": {
+            "on": false
+          },
+          "bedroom3Light": {
+            "on": false
+          },
+          "bathroomLight": {
+            "on": false
+          },
+          "hallwayLight": {
+            "on": true
+          },
+          "patioLight": {
+            "on": false
+          },
+          "fanLiving": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom1": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom2": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom3": {
+            "on": false,
+            "speed": "off"
+          },
+          "ac": {
+            "on": true,
+            "mode": "cool",
+            "target": 22,
+            "fan": "medium",
+            "duty": 0.8
+          },
+          "acBedroom1": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom2": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom3": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "tv": {
+            "on": false
+          },
+          "purifier": {
+            "on": true
+          },
+          "coffee": {
+            "on": false
+          },
+          "security": {
+            "on": true
+          },
+          "doorLiving": {
+            "open": false
+          },
+          "doorBedroom1": {
+            "open": false
+          },
+          "doorBedroom2": {
+            "open": false
+          },
+          "doorBedroom3": {
+            "open": false
+          },
+          "doorRear": {
+            "open": false
+          },
+          "doorBathroom": {
+            "open": false
+          }
+        },
+        "rooms": {
+          "living": {
+            "temp": 23.77203109383196,
+            "humidity": 46.033305567127215,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "kitchen": {
+            "temp": 24.61775803566224,
+            "humidity": 51.022897577399974,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom": {
+            "temp": 22.423862360421147,
+            "humidity": 43.039550360963574,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom2": {
+            "temp": 24.01942285150558,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom3": {
+            "temp": 24.218867912891138,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bathroom": {
+            "temp": 23.121920075270587,
+            "humidity": 57.010407989727256,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "hallway": {
+            "temp": 24.51803550496947,
+            "humidity": 48.029142371236325,
+            "motion": true,
+            "occupied": true,
+            "co2": 600
+          },
+          "patio": {
+            "temp": 29.00554938614445,
+            "humidity": 60.004163195890904,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          }
+        },
+        "t": 5
+      },
+      "simulator": "switch-sim/2.1.0"
+    },
+    "goodnight-house-empty": {
+      "scenarioId": "goodnight-house-empty",
+      "scenarioVersion": "v1",
+      "routine": "goodnight@v3-candidate+guard",
+      "trace": [
+        {
+          "seq": 1,
+          "t": 5,
+          "kind": "routine_start",
+          "routine": "goodnight@v3-candidate+guard",
+          "source": "scenario",
+          "step": null
+        },
+        {
+          "seq": 2,
+          "t": 5,
+          "kind": "device",
+          "device": "livingLight",
+          "room": "living",
+          "from": true,
+          "to": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard",
+          "step": 0
+        },
+        {
+          "seq": 3,
+          "t": 5,
+          "kind": "device",
+          "device": "kitchenLight",
+          "room": "kitchen",
+          "from": true,
+          "to": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard",
+          "step": 1
+        },
+        {
+          "seq": 4,
+          "t": 5,
+          "kind": "condition",
+          "step": 2,
+          "guard": {
+            "type": "unlessOccupied",
+            "room": "hallway"
+          },
+          "device": "hallwayLight",
+          "value": false,
+          "ok": true,
+          "unknown": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard"
+        },
+        {
+          "seq": 5,
+          "t": 5,
+          "kind": "device",
+          "device": "hallwayLight",
+          "room": "hallway",
+          "from": true,
+          "to": false,
+          "source": "scenario",
+          "routine": "goodnight@v3-candidate+guard",
+          "step": 2
+        },
+        {
+          "seq": 6,
+          "t": 5,
+          "kind": "routine_end",
+          "routine": "goodnight@v3-candidate+guard",
+          "source": "scenario",
+          "step": null
+        }
+      ],
+      "results": [
+        {
+          "requirement": "REQ-001",
+          "version": 1,
+          "title": "Security system armed after Goodnight",
+          "room": "hallway",
+          "device": "security",
+          "scenario": "goodnight-house-empty",
+          "result": "PASS",
+          "reason": "Security system: ARMED after Goodnight (as required)",
+          "evidence": {
+            "seq": 6,
+            "t": 5,
+            "kind": "routine_end",
+            "routine": "goodnight@v3-candidate+guard",
+            "source": "scenario",
+            "step": null
+          }
+        },
+        {
+          "requirement": "REQ-002",
+          "version": 1,
+          "title": "Living room lights off after Goodnight",
+          "room": "living",
+          "device": "livingLight",
+          "scenario": "goodnight-house-empty",
+          "result": "PASS",
+          "reason": "Living room lights: OFF after Goodnight (as required)",
+          "evidence": {
+            "seq": 2,
+            "t": 5,
+            "kind": "device",
+            "device": "livingLight",
+            "room": "living",
+            "from": true,
+            "to": false,
+            "source": "scenario",
+            "routine": "goodnight@v3-candidate+guard",
+            "step": 0
+          }
+        }
+      ],
+      "hash": "c768669b",
+      "setupEvents": 0,
+      "initial": {
+        "devices": {
+          "livingLight": {
+            "on": true
+          },
+          "kitchenLight": {
+            "on": true
+          },
+          "bedroomLight": {
+            "on": false
+          },
+          "bedroom2Light": {
+            "on": false
+          },
+          "bedroom3Light": {
+            "on": false
+          },
+          "bathroomLight": {
+            "on": false
+          },
+          "hallwayLight": {
+            "on": true
+          },
+          "patioLight": {
+            "on": false
+          },
+          "fanLiving": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom1": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom2": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom3": {
+            "on": false,
+            "speed": "off"
+          },
+          "ac": {
+            "on": true,
+            "mode": "cool",
+            "target": 22,
+            "fan": "medium",
+            "duty": 0.8
+          },
+          "acBedroom1": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom2": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom3": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "tv": {
+            "on": false
+          },
+          "purifier": {
+            "on": true
+          },
+          "coffee": {
+            "on": false
+          },
+          "security": {
+            "on": true
+          },
+          "doorLiving": {
+            "open": false
+          },
+          "doorBedroom1": {
+            "open": false
+          },
+          "doorBedroom2": {
+            "open": false
+          },
+          "doorBedroom3": {
+            "open": false
+          },
+          "doorRear": {
+            "open": false
+          },
+          "doorBathroom": {
+            "open": false
+          }
+        },
+        "rooms": {
+          "living": {
+            "temp": 23.77203109383196,
+            "humidity": 46.033305567127215,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "kitchen": {
+            "temp": 24.61775803566224,
+            "humidity": 51.022897577399974,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom": {
+            "temp": 22.423862360421147,
+            "humidity": 43.039550360963574,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom2": {
+            "temp": 24.01942285150558,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom3": {
+            "temp": 24.218867912891138,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bathroom": {
+            "temp": 23.121920075270587,
+            "humidity": 57.010407989727256,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "hallway": {
+            "temp": 24.51803550496947,
+            "humidity": 48.029142371236325,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "patio": {
+            "temp": 29.00554938614445,
+            "humidity": 60.004163195890904,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          }
+        },
+        "t": 5
+      },
+      "final": {
+        "devices": {
+          "livingLight": {
+            "on": false
+          },
+          "kitchenLight": {
+            "on": false
+          },
+          "bedroomLight": {
+            "on": false
+          },
+          "bedroom2Light": {
+            "on": false
+          },
+          "bedroom3Light": {
+            "on": false
+          },
+          "bathroomLight": {
+            "on": false
+          },
+          "hallwayLight": {
+            "on": false
+          },
+          "patioLight": {
+            "on": false
+          },
+          "fanLiving": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom1": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom2": {
+            "on": false,
+            "speed": "off"
+          },
+          "fanBedroom3": {
+            "on": false,
+            "speed": "off"
+          },
+          "ac": {
+            "on": true,
+            "mode": "cool",
+            "target": 22,
+            "fan": "medium",
+            "duty": 0.8
+          },
+          "acBedroom1": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom2": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "acBedroom3": {
+            "on": false,
+            "mode": "cool",
+            "target": 24,
+            "fan": "medium",
+            "duty": 0
+          },
+          "tv": {
+            "on": false
+          },
+          "purifier": {
+            "on": true
+          },
+          "coffee": {
+            "on": false
+          },
+          "security": {
+            "on": true
+          },
+          "doorLiving": {
+            "open": false
+          },
+          "doorBedroom1": {
+            "open": false
+          },
+          "doorBedroom2": {
+            "open": false
+          },
+          "doorBedroom3": {
+            "open": false
+          },
+          "doorRear": {
+            "open": false
+          },
+          "doorBathroom": {
+            "open": false
+          }
+        },
+        "rooms": {
+          "living": {
+            "temp": 23.77203109383196,
+            "humidity": 46.033305567127215,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "kitchen": {
+            "temp": 24.61775803566224,
+            "humidity": 51.022897577399974,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom": {
+            "temp": 22.423862360421147,
+            "humidity": 43.039550360963574,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom2": {
+            "temp": 24.01942285150558,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bedroom3": {
+            "temp": 24.218867912891138,
+            "humidity": 45.03538716507267,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "bathroom": {
+            "temp": 23.121920075270587,
+            "humidity": 57.010407989727256,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "hallway": {
+            "temp": 24.51803550496947,
+            "humidity": 48.029142371236325,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          },
+          "patio": {
+            "temp": 29.00554938614445,
+            "humidity": 60.004163195890904,
+            "motion": false,
+            "occupied": false,
+            "co2": 600
+          }
+        },
+        "t": 5
+      },
+      "simulator": "switch-sim/2.1.0"
+    }
+  },
+  "cases": [
+    {
+      "requirement": "REQ-001",
+      "version": 1,
+      "title": "Security system armed after Goodnight",
+      "room": "hallway",
+      "device": "security",
+      "scenario": "goodnight-hallway-occupied",
+      "result": "PASS",
+      "reason": "Security system: ARMED after Goodnight (as required)",
+      "evidence": {
+        "seq": 8,
+        "t": 5,
+        "kind": "routine_end",
+        "routine": "goodnight@v3-candidate+guard",
+        "source": "scenario",
+        "step": null
+      },
+      "scenarioVersion": "v1",
+      "traceHash": "f215666f"
+    },
+    {
+      "requirement": "REQ-002",
+      "version": 1,
+      "title": "Living room lights off after Goodnight",
+      "room": "living",
+      "device": "livingLight",
+      "scenario": "goodnight-hallway-occupied",
+      "result": "PASS",
+      "reason": "Living room lights: OFF after Goodnight (as required)",
+      "evidence": {
+        "seq": 4,
+        "t": 5,
+        "kind": "device",
+        "device": "livingLight",
+        "room": "living",
+        "from": true,
+        "to": false,
+        "source": "scenario",
+        "routine": "goodnight@v3-candidate+guard",
+        "step": 0
+      },
+      "scenarioVersion": "v1",
+      "traceHash": "f215666f"
+    },
+    {
+      "requirement": "REQ-003",
+      "version": 1,
+      "title": "Keep Hallway light on while occupied",
+      "room": "hallway",
+      "device": "hallwayLight",
+      "scenario": "goodnight-hallway-occupied",
+      "result": "PASS",
+      "reason": "Hallway was occupied and Hallway lights was never turned OFF",
+      "scenarioVersion": "v1",
+      "traceHash": "f215666f"
+    },
+    {
+      "requirement": "REQ-001",
+      "version": 1,
+      "title": "Security system armed after Goodnight",
+      "room": "hallway",
+      "device": "security",
+      "scenario": "goodnight-house-empty",
+      "result": "PASS",
+      "reason": "Security system: ARMED after Goodnight (as required)",
+      "evidence": {
+        "seq": 6,
+        "t": 5,
+        "kind": "routine_end",
+        "routine": "goodnight@v3-candidate+guard",
+        "source": "scenario",
+        "step": null
+      },
+      "scenarioVersion": "v1",
+      "traceHash": "c768669b"
+    },
+    {
+      "requirement": "REQ-002",
+      "version": 1,
+      "title": "Living room lights off after Goodnight",
+      "room": "living",
+      "device": "livingLight",
+      "scenario": "goodnight-house-empty",
+      "result": "PASS",
+      "reason": "Living room lights: OFF after Goodnight (as required)",
+      "evidence": {
+        "seq": 2,
+        "t": 5,
+        "kind": "device",
+        "device": "livingLight",
+        "room": "living",
+        "from": true,
+        "to": false,
+        "source": "scenario",
+        "routine": "goodnight@v3-candidate+guard",
+        "step": 0
+      },
+      "scenarioVersion": "v1",
+      "traceHash": "c768669b"
+    }
+  ],
+  "counts": {
+    "PASS": 5,
+    "FAIL": 0,
+    "INCONCLUSIVE": 0
+  },
+  "verdict": "PASS",
+  "candidateOrigin": "edit",
+  "fixApplied": true,
+  "decision": {
+    "routine": "goodnight@v3-candidate+guard",
+    "decision": "approved",
+    "by": "household member",
+    "at": 8550,
+    "runId": "RUN-0002",
+    "note": ""
+  },
+  "sequence": 2
+}
