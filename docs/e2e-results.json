@@ -1,0 +1,394 @@
+{
+  "note": "Stitched from three runs; each check comes from the last run that executed it. Sections 2-15: run 2. Sections 16-18: run 4 (E2E_FROM=16). Section 1 and 19: run 5 (E2E_FROM=19). See docs/VERIFICATION.md.",
+  "base": "http://127.0.0.1:5173/",
+  "when": "2026-10-22T16:09:46.664Z",
+  "passed": 64,
+  "failed": 0,
+  "results": [
+    {
+      "name": "1 home: headline",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    },
+    {
+      "name": "1 home: SIMULATED DEMO badge visible",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    },
+    {
+      "name": "1 home: 8 numbered room markers attached to the house",
+      "pass": true,
+      "detail": "8 visible",
+      "run": "run 5"
+    },
+    {
+      "name": "1 home: local GLB loaded (no external viewer)",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    },
+    {
+      "name": "2 exterior: drag orbits the camera",
+      "pass": true,
+      "detail": "18.5,10.5,23.5 -> -29.02,10.5,8.075",
+      "run": "run 2"
+    },
+    {
+      "name": "2 exterior: wheel zooms",
+      "pass": true,
+      "detail": "distance 31.06 -> 16.78",
+      "run": "run 2"
+    },
+    {
+      "name": "3/6 marker 1 opens the Living room tour",
+      "pass": true,
+      "detail": "{\"room\":\"living\",\"mode\":\"room\"}",
+      "run": "run 2"
+    },
+    {
+      "name": "3 camera is inside the living room",
+      "pass": true,
+      "detail": "-0.25,1.63,-1.25",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour living: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room living, label 01 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour kitchen: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room kitchen, label 02 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour bedroom: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room bedroom, label 03 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour bathroom: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room bathroom, label 04 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour hallway: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room hallway, label 05 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour bedroom2: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room bedroom2, label 06 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour bedroom3: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room bedroom3, label 07 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "4 room tour patio: camera at its validated preset and inside the room",
+      "pass": true,
+      "detail": "err 0.000 m, room patio, label 08 / 08",
+      "run": "run 2"
+    },
+    {
+      "name": "7 next from 08 wraps to 01 Living room",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "7 previous from 01 wraps to 08 terrace",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "7 previous moves camera to Bedroom 3",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "8 walk: living -> hallway -> stairs -> upper floor (bedroom 3)",
+      "pass": true,
+      "detail": "feet y 3.27",
+      "run": "run 2"
+    },
+    {
+      "name": "8 walk: rear wall blocks, camera stays in the hallway",
+      "pass": true,
+      "detail": "[-2.62,1.63,-3.26]",
+      "run": "run 2"
+    },
+    {
+      "name": "8 walk: furniture (bed) blocks",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "8 walk: closed sliding glass door blocks",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "8 walk: keyboard (S) moves the camera",
+      "pass": true,
+      "detail": "-2.617,1.63,-3.26 -> -2.665,1.63,-3.26",
+      "run": "run 2"
+    },
+    {
+      "name": "9 cutaway ground floor: roof hidden, walls clipped at 2.72 m, devices kept",
+      "pass": true,
+      "detail": "{\"roofVisible\":false,\"clip\":2.72,\"wallClipped\":1,\"fanVisible\":true}",
+      "run": "run 2"
+    },
+    {
+      "name": "9 cutaway upper floor: cut at 5.35 m",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "9 leaving cutaway restores all geometry",
+      "pass": true,
+      "detail": "{\"clip\":10000,\"hidden\":0}",
+      "run": "run 2"
+    },
+    {
+      "name": "10 fullscreen: viewer container is fullscreen, controls still inside, canvas resized",
+      "pass": true,
+      "detail": "{\"el\":\"viewer  \",\"store\":true,\"canvas\":[1440,1000],\"aspect\":1.44,\"controls\":true}",
+      "run": "run 2"
+    },
+    {
+      "name": "10 fullscreen: camera aspect matches canvas",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "10 fullscreen: exit restores layout and store state",
+      "pass": true,
+      "detail": "{\"el\":true,\"store\":true} -> {\"el\":false,\"store\":false,\"canvas\":[698,698]}",
+      "run": "run 2"
+    },
+    {
+      "name": "11 living light OFF: scene darker, bulb emissive off, sim OFF, trace event recorded",
+      "pass": true,
+      "detail": "luminance on 119.7 vs off 49.3; event #1",
+      "run": "run 2"
+    },
+    {
+      "name": "11 lights are independent (kitchen unaffected)",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "12 fan high: blades rotate, housing does not",
+      "pass": true,
+      "detail": "Δ -1.900 rad",
+      "run": "run 2"
+    },
+    {
+      "name": "12 fan off: blades stop",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "13 AC: target lowered via UI and modeled temperature falls gradually",
+      "pass": true,
+      "detail": "22 °C -> 19 °C; 20.30 -> 20.08 -> 19.32 -> 19.00",
+      "run": "run 2"
+    },
+    {
+      "name": "13 AC: room temperature shown in the panel",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "14 manual time changes the scene (noon brightest, night darkest)",
+      "pass": true,
+      "detail": "{\"dawn\":87.2,\"noon\":154.9,\"sunset\":103.7,\"night\":46.5}",
+      "run": "run 2"
+    },
+    {
+      "name": "14 night does not change device states",
+      "pass": true,
+      "detail": "",
+      "run": "run 2"
+    },
+    {
+      "name": "15 automatic mode follows browser local time",
+      "pass": true,
+      "detail": "{\"chip\":\" 20:28NightAUTO\",\"local\":\"20:28\",\"mode\":\"auto\"}",
+      "run": "run 2"
+    },
+    {
+      "name": "16 correction -> structured DRAFT (not active yet)",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 confirmed requirement gets a stable ID and version",
+      "pass": true,
+      "detail": "REQ-003 v1",
+      "run": "run 4"
+    },
+    {
+      "name": "16 Replay Lab shows the before/after diff removing the guard",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 replay of the candidate FAILS for the right reason (hallway light OFF while occupied, step 2)",
+      "pass": true,
+      "detail": "Suite: FAIL",
+      "run": "run 4"
+    },
+    {
+      "name": "17 failed assertion highlights the hallway light in the 3D house",
+      "pass": true,
+      "detail": "{\"label\":\"FAIL REQ-003 · Hallway lights · event #6\",\"state\":\"hallway\"}",
+      "run": "run 4"
+    },
+    {
+      "name": "16 apply fix: proposal shown, marked NOT VERIFIED",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 approval blocked until rerun",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 regression rerun PASSES on the whole relevant suite",
+      "pass": true,
+      "detail": "Suite: PASS",
+      "run": "run 4"
+    },
+    {
+      "name": "16 human approval recorded with the run",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 report lists versions, simulator, trace and decision",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "16 JSON export downloads a real report",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page home: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page why: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page replay: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page requirements: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page reports: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page devices: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "18 page settings: navigates, title and active nav",
+      "pass": true,
+      "detail": "",
+      "run": "run 4"
+    },
+    {
+      "name": "19 mobile home: no horizontal page scroll",
+      "pass": true,
+      "detail": "overflow 0px",
+      "run": "run 5"
+    },
+    {
+      "name": "19 mobile replay: no horizontal page scroll",
+      "pass": true,
+      "detail": "overflow 0px",
+      "run": "run 5"
+    },
+    {
+      "name": "19 mobile requirements: no horizontal page scroll",
+      "pass": true,
+      "detail": "overflow 0px",
+      "run": "run 5"
+    },
+    {
+      "name": "19 mobile devices: no horizontal page scroll",
+      "pass": true,
+      "detail": "overflow 0px",
+      "run": "run 5"
+    },
+    {
+      "name": "19 tablet home: no horizontal page scroll",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    },
+    {
+      "name": "19 markers are buttons with accessible names",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    },
+    {
+      "name": "19 no console errors",
+      "pass": true,
+      "detail": "",
+      "run": "run 5"
+    }
+  ],
+  "consoleErrorsLastRun": []
+}
