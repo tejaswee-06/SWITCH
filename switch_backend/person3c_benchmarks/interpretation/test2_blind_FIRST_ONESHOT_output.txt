@@ -1,0 +1,73 @@
+{
+  "n_cases": 58,
+  "n_clean": 36,
+  "n_needs_clarification": 10,
+  "n_should_reject": 12,
+  "decision_accuracy": 1.0,
+  "exact_structured_match_rate_clean": 0.9722222222222222,
+  "per_field": {
+    "device": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 36,
+      "fp": 0,
+      "fn": 0
+    },
+    "room": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 36,
+      "fp": 0,
+      "fn": 0
+    },
+    "routine": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 11,
+      "fp": 0,
+      "fn": 0
+    },
+    "condition": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 23,
+      "fp": 0,
+      "fn": 0
+    },
+    "time": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "expected": {
+      "precision": 0.9722222222222222,
+      "recall": 0.9722222222222222,
+      "f1": 0.9722222222222222,
+      "tp": 35,
+      "fp": 1,
+      "fn": 1
+    },
+    "scope": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 36,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "clarification_ambiguity_field_exact": 0.9,
+  "schema_valid_output_rate": 1.0,
+  "unsupported_rejection_rate": 1.0,
+  "unsupported_error_code_exact": 1.0
+}
+n_errors: 2
+{'id': 'test2_blind_003', 'text': "Hey, the bedroom light shut off on me while I was in the bedroom. Don't do that.", 'field': 'expected', 'gold': ['must_not_set', 'power', 'off', None], 'pred': ['must_set', 'power', 'off', None]}
+{'id': 'test2_blind_044', 'text': 'The bathroom is annoying', 'gold_ambiguous': ['expected_behavior'], 'pred_ambiguous': ['device', 'expected_behavior']}
