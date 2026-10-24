@@ -1,0 +1,30 @@
+# dependencies / environments
+node_modules/
+.venv/
+venv/
+switch_backend/.venv/
+
+# build output and caches (recreate with npm run build / pytest)
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vite/
+coverage/
+playwright-report/
+test-results/
+
+# local runtime data and secrets
+*.db
+switch_backend/data/
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
