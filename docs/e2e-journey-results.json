@@ -1,0 +1,382 @@
+{
+ "when": "2026-10-23T18:01:10.780Z",
+ "frontend": "http://127.0.0.1:5173",
+ "backend": "http://127.0.0.1:8000",
+ "passed": 65,
+ "failed": 0,
+ "results": [
+  {
+   "name": "landing: giant SWITCH wordmark types S→W→I→T→C→H and stays visible",
+   "pass": true,
+   "detail": "started at 2"
+  },
+  {
+   "name": "landing: typewriter causes no layout shift",
+   "pass": true,
+   "detail": "678.234375x163.453125 -> 678.234375x163.453125"
+  },
+  {
+   "name": "landing: blinking cursor present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: React Bits Orb initialises WebGL2 (or shows the labelled fallback)",
+   "pass": true,
+   "detail": "ready"
+  },
+  {
+   "name": "landing: Orb WebGL2 status in this browser",
+   "pass": true,
+   "info": true,
+   "detail": "ready"
+  },
+  {
+   "name": "landing: SWITCH logo and SIMULATED DEMO label shown",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: theme toggle switches to the light theme",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: phone layout has no horizontal overflow",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: \"Talk to SWITCH\" enters the app with the assistant open",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: reduced motion shows the full wordmark immediately",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: \"Explore Your Home\" opens Home Overview",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "home: SIMULATED DEMO badge, backend connected, 3D canvas present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "home: assistant entry point is labelled simulated",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "run1: correction becomes a saved DRAFT (not enforced)",
+   "pass": true,
+   "detail": "req-1b1e360591"
+  },
+  {
+   "name": "run1: explicit confirmation persists CONFIRMED v1",
+   "pass": true,
+   "detail": "req-1b1e360591"
+  },
+  {
+   "name": "replay: faulty candidate produces deterministic FAIL",
+   "pass": true,
+   "detail": "Suite: FAIL"
+  },
+  {
+   "name": "replay: failure is the confirmed hallway requirement at a trace event",
+   "pass": true,
+   "detail": "req-1b1e360591 E0006"
+  },
+  {
+   "name": "replay: timeline flags the violating event",
+   "pass": true,
+   "detail": "violates req-1b1e360591"
+  },
+  {
+   "name": "replay: selected-requirement panel shows the evidence event id",
+   "pass": true,
+   "detail": "Failed requirement: req-1b1e360591 v1“Don't turn off the hallway light while someone is there.”ExpectedNo routine or automation sets Hallway lights to OFF while"
+  },
+  {
+   "name": "replay: approve is disabled while the suite FAILs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "3D/timeline/store agree: highlight is the hallway light in the hallway",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "3D replay state at the offending event: hallway occupied and light OFF",
+   "pass": true,
+   "detail": "{\"on\":false,\"occ\":true}"
+  },
+  {
+   "name": "backend report agrees with the UI (run, verdict, evidence event)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "repair: proposed diff shown and marked NOT VERIFIED",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "repair: candidate advanced to v3, approval still disabled",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "rerun: repaired candidate PASSes the relevant suite",
+   "pass": true,
+   "detail": "PASS 5FAIL 0INCONCLUSIVE 0Suite: PASS"
+  },
+  {
+   "name": "approval: explicit human decision recorded (nothing deployed)",
+   "pass": true,
+   "detail": "Human decisionAPPROVED · goodnight@v3 · run-0e1d0033ac"
+  },
+  {
+   "name": "reports: latest report shows PASS, decision and backend provenance",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "export JSON = canonical backend record for that run",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "export Markdown contains verdict, evidence and provenance",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "PDF path: print button present (browser print dialog)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "why: recorded journey shows correction, FAIL, repair, rerun and decision from records",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "integrations: Alexa+ labelled SIMULATED DEMO (never CONNECTED)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "integrations: harmless connection test passes and status stays not_configured",
+   "pass": true,
+   "detail": "Passed: initialize ✓ · tools/list ✓ · tools/call switch_integration_status ✓ — in-process simulated adapter only (no Amazon endpoint contacted). Status remains not_configured."
+  },
+  {
+   "name": "reset: backend household re-seeded (3 requirements, no runs)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "run2: correction becomes a saved DRAFT (not enforced)",
+   "pass": true,
+   "detail": "req-71b4a5ae2b"
+  },
+  {
+   "name": "run2: explicit confirmation persists CONFIRMED v1",
+   "pass": true,
+   "detail": "req-71b4a5ae2b"
+  },
+  {
+   "name": "repeatability: same evidence event and trace hash after reset",
+   "pass": true,
+   "detail": "E0006/E0006"
+  },
+  {
+   "name": "assistant: \"why did it fail?\" explains the actual failed assertion with its trace event",
+   "pass": true,
+   "detail": "Assistant:\n\nThis is the failed assertion, taken from the recorded event trace.\n\nWhy it failed\nFAIL\n\nDo not turn off the hallway lights while the hallway is occu"
+  },
+  {
+   "name": "assistant: approval is not offered while the latest check FAILs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: \"fix it\" proposes a constrained repair with a readable diff, NOT VERIFIED",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: rerun shows the backend verdict (PASS) for the repaired candidate",
+   "pass": true,
+   "detail": "Assistant:\n\nThe deterministic replay finished: PASS.\n\nDeterministic replay run-57d43e963b\nPASS\n\ngoodnight v3 · candidate cand-a545d5aa8c · PASS 5 · FAIL 0 · INC"
+  },
+  {
+   "name": "assistant: approval asks for explicit confirmation",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: decision recorded, not deployed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: UI store reflects the assistant-recorded decision",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: status answers honestly (simulated, not connected to Amazon or devices)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: backend outage is reported honestly with a Retry button (no fabricated answer)",
+   "pass": true,
+   "detail": "Assistant:\nCouldn’t reach the SWITCH backend\n\nThe SWITCH backend did not answer.\n\nRetry"
+  },
+  {
+   "name": "assistant: after the backend is restored, Retry returns the real result",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: no raw JSON anywhere in the conversation",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "assistant: conversation history survives closing and reopening",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "dock: every destination navigates or triggers its action",
+   "pass": true,
+   "detail": "{\"routines\":true,\"requirements\":true,\"reports\":true,\"settings\":true,\"home\":true,\"house\":true,\"search\":true,\"notifications\":true,\"theme\":true,\"assistant\":true}"
+  },
+  {
+   "name": "dock: keyboard arrow navigation moves focus between items",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): home",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: home",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): why",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: why",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): replay",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: replay",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): requirements",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: requirements",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): reports",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: reports",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): devices",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: devices",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "a11y (axe incl. colour contrast, critical/serious): settings",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "a11y moderate/minor findings: settings",
+   "pass": true,
+   "info": true,
+   "detail": "none"
+  },
+  {
+   "name": "keyboard: first Tab on a fresh page reaches the skip link",
+   "pass": true,
+   "detail": "skip-link"
+  },
+  {
+   "name": "keyboard: skip link moves focus to the main content",
+   "pass": true,
+   "detail": "main"
+  },
+  {
+   "name": "keyboard: focused control shows a visible focus outline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "responsive phone 390px: no horizontal page overflow",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "responsive tablet 820px: no horizontal page overflow",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline mode is labelled as the local engine",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no uncaught page errors / console errors",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}
