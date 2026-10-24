@@ -1,0 +1,117 @@
+{
+  "n_cases": 96,
+  "n_clean": 56,
+  "n_needs_clarification": 20,
+  "n_should_reject": 20,
+  "decision_accuracy": 0.9270833333333334,
+  "exact_structured_match_rate_clean": 0.8214285714285714,
+  "per_field": {
+    "device": {
+      "precision": 1.0,
+      "recall": 0.8928571428571429,
+      "f1": 0.9433962264150945,
+      "tp": 50,
+      "fp": 0,
+      "fn": 6
+    },
+    "room": {
+      "precision": 1.0,
+      "recall": 0.8928571428571429,
+      "f1": 0.9433962264150945,
+      "tp": 50,
+      "fp": 0,
+      "fn": 6
+    },
+    "routine": {
+      "precision": 1.0,
+      "recall": 0.8888888888888888,
+      "f1": 0.9411764705882353,
+      "tp": 16,
+      "fp": 0,
+      "fn": 2
+    },
+    "condition": {
+      "precision": 0.96875,
+      "recall": 0.8378378378378378,
+      "f1": 0.8985507246376812,
+      "tp": 31,
+      "fp": 1,
+      "fn": 6
+    },
+    "time": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0
+    },
+    "expected": {
+      "precision": 0.96,
+      "recall": 0.8571428571428571,
+      "f1": 0.9056603773584904,
+      "tp": 48,
+      "fp": 2,
+      "fn": 8
+    },
+    "scope": {
+      "precision": 1.0,
+      "recall": 0.8928571428571429,
+      "f1": 0.9433962264150945,
+      "tp": 50,
+      "fp": 0,
+      "fn": 6
+    }
+  },
+  "clarification_ambiguity_field_exact": 0.8,
+  "schema_valid_output_rate": 1.0,
+  "unsupported_rejection_rate": 1.0,
+  "unsupported_error_code_exact": 1.0
+}
+n_errors: 46
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'field': 'device', 'gold': 'hallway_light', 'pred': None}
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'field': 'room', 'gold': 'hallway', 'pred': None}
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'field': 'condition', 'gold': [['hallway_occupancy', '==', True]], 'pred': None}
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'field': 'expected', 'gold': ['must_not_set', 'power', 'off', None], 'pred': None}
+{'id': 'test_001', 'text': "Please don't let the hallway light switch off if there is anybody in the hallway.", 'field': 'scope', 'gold': 'device', 'pred': None}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'field': 'device', 'gold': 'kitchen_light', 'pred': None}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'field': 'room', 'gold': 'kitchen', 'pred': None}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'field': 'condition', 'gold': [['kitchen_occupancy', '==', True]], 'pred': None}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'field': 'expected', 'gold': ['must_not_set', 'power', 'off', None], 'pred': None}
+{'id': 'test_002', 'text': "I never want the kitchen light turned off while I'm cooking in the kitchen.", 'field': 'scope', 'gold': 'device', 'pred': None}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'field': 'device', 'gold': 'living_room_light', 'pred': None}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'field': 'room', 'gold': 'living_room', 'pred': None}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'field': 'condition', 'gold': [['mode', '==', 'movie']], 'pred': None}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'field': 'expected', 'gold': ['must_not_set', 'power', 'on', None], 'pred': None}
+{'id': 'test_006', 'text': 'Stop the living room light from turning on in movie mode', 'field': 'scope', 'gold': 'device', 'pred': None}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'field': 'device', 'gold': 'living_room_light', 'pred': None}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'field': 'room', 'gold': 'living_room', 'pred': None}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'field': 'condition', 'gold': [['living_room_occupancy', '==', True]], 'pred': None}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'field': 'expected', 'gold': ['must_set', 'power', 'on', None], 'pred': None}
+{'id': 'test_012', 'text': 'Always turn the living room light on when someone is in the living room.', 'field': 'scope', 'gold': 'device', 'pred': None}
+{'id': 'test_019', 'text': 'Nobody should be able to unlock the front door when nobody is home', 'field': 'expected', 'gold': ['must_not_set', 'lock', 'unlocked', None], 'pred': ['must_set', 'lock', 'unlocked', None]}
+{'id': 'test_039', 'text': 'The thermostat should stay at 20 in away mode routine', 'field': 'condition', 'gold': [], 'pred': [['mode', '==', 'away']]}
+{'id': 'test_042', 'text': "I don't want the kitchen light to turn on at night.", 'field': 'expected', 'gold': ['must_not_set', 'power', 'on', None], 'pred': ['must_set', 'power', 'on', None]}
+{'id': 'test_048', 'text': "The hallway light turned off while I was standing there and it shouldn't have", 'field': 'condition', 'gold': [['hallway_occupancy', '==', True]], 'pred': []}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'field': 'device', 'gold': 'front_door_lock', 'pred': None}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'field': 'room', 'gold': 'hallway', 'pred': None}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'field': 'routine', 'gold': 'goodnight', 'pred': None}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'field': 'expected', 'gold': ['must_not_set', 'lock', 'unlocked', None], 'pred': None}
+{'id': 'test_050', 'text': 'Goodnight shall not unlock the front door', 'field': 'scope', 'gold': 'routine', 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'gold_decision': 'draft_ready', 'pred_decision': 'needs_clarification', 'error_code': None, 'pred_title': 'Unresolved correction (needs clarification)'}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'device', 'gold': 'bathroom_light', 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'room', 'gold': 'bathroom', 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'routine', 'gold': 'good_morning', 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'condition', 'gold': [['bathroom_occupancy', '==', True]], 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'expected', 'gold': ['must_set', 'power', 'on', None], 'pred': None}
+{'id': 'test_052', 'text': 'Turn the bathroom light on in the good morning routine if someone is in the bathroom', 'field': 'scope', 'gold': 'routine', 'pred': None}
+{'id': 'test_058', 'text': 'The light went off and I hate that', 'gold_ambiguous': ['device'], 'pred_ambiguous': ['device', 'expected_behavior']}
+{'id': 'test_065', 'text': 'The kitchen thing was wrong', 'gold_ambiguous': ['expected_behavior'], 'pred_ambiguous': ['device', 'expected_behavior']}
+{'id': 'test_067', 'text': 'Keep the kitchen light on and never keep the kitchen light on', 'gold_decision': 'needs_clarification', 'pred_decision': 'draft_ready', 'error_code': None, 'pred_title': 'Do not set kitchen_light power off'}
+{'id': 'test_067', 'text': 'Keep the kitchen light on and never keep the kitchen light on', 'gold_ambiguous': ['contradiction'], 'pred_ambiguous': []}
+{'id': 'test_076', 'text': 'Turn the lights off when we leave', 'gold_ambiguous': ['device'], 'pred_ambiguous': ['device', 'expected_behavior']}
