@@ -1,0 +1,161 @@
+{
+  "data_source": "synthetic",
+  "accuracy_by_label_purity": {
+    "pure_windows_ge_0.9": {
+      "n": 1324,
+      "accuracy": 0.9788519637462235
+    },
+    "mixed_windows_lt_0.9": {
+      "n": 1174,
+      "accuracy": 0.778534923339012
+    },
+    "mean_label_purity": 0.8324659727782225,
+    "note": "diagnostic only: windows that straddle several activities have an ambiguous majority label"
+  },
+  "homes": [
+    "synthetic_home01",
+    "synthetic_home02",
+    "synthetic_home03",
+    "synthetic_home04",
+    "synthetic_home05",
+    "synthetic_home06"
+  ],
+  "windows": 2498,
+  "windows_excluded_label_not_in_model": 2,
+  "class_distribution": {
+    "Relax": 824,
+    "Meal_Preparation": 685,
+    "Housekeeping": 412,
+    "Sleeping": 400,
+    "Eating": 161,
+    "Bed_to_Toilet": 13,
+    "Enter_Home": 3
+  },
+  "accuracy": 0.8847077662129704,
+  "accuracy_wilson95": [
+    0.8716,
+    0.8966
+  ],
+  "macro_f1": 0.6020359167824191,
+  "weighted_f1": 0.8847520223726202,
+  "per_class": {
+    "Bed_to_Toilet": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 13.0
+    },
+    "Eating": {
+      "precision": 0.5380434782608695,
+      "recall": 0.6149068322981367,
+      "f1-score": 0.5739130434782609,
+      "support": 161.0
+    },
+    "Enter_Home": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 3.0
+    },
+    "Housekeeping": {
+      "precision": 0.9226932668329177,
+      "recall": 0.8980582524271845,
+      "f1-score": 0.9102091020910209,
+      "support": 412.0
+    },
+    "Meal_Preparation": {
+      "precision": 0.9076923076923077,
+      "recall": 0.9474452554744526,
+      "f1-score": 0.9271428571428572,
+      "support": 685.0
+    },
+    "Relax": {
+      "precision": 0.9383033419023136,
+      "recall": 0.8859223300970874,
+      "f1-score": 0.9113607990012484,
+      "support": 824.0
+    },
+    "Sleeping": {
+      "precision": 0.8786407766990292,
+      "recall": 0.905,
+      "f1-score": 0.8916256157635468,
+      "support": 400.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Bed_to_Toilet",
+      "Eating",
+      "Enter_Home",
+      "Housekeeping",
+      "Meal_Preparation",
+      "Relax",
+      "Sleeping"
+    ],
+    "matrix": [
+      [
+        0,
+        5,
+        0,
+        0,
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        99,
+        3,
+        6,
+        26,
+        20,
+        7
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        1,
+        370,
+        26,
+        7,
+        1
+      ],
+      [
+        0,
+        16,
+        1,
+        18,
+        649,
+        0,
+        1
+      ],
+      [
+        0,
+        42,
+        2,
+        7,
+        9,
+        730,
+        34
+      ],
+      [
+        1,
+        14,
+        0,
+        0,
+        3,
+        20,
+        362
+      ]
+    ]
+  }
+}
