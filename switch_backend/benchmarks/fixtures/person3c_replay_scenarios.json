@@ -1,0 +1,191 @@
+[
+  {
+    "id": "SYNTHETIC-01-contradictory-writes",
+    "family": "contradictory_writes",
+    "label": "SYNTHETIC",
+    "state": {
+      "hallway_light.power": "off"
+    },
+    "assertions": [
+      {
+        "device_id": "hallway_light",
+        "capability": "power",
+        "expected": "on",
+        "trace_event_id": "trace-syn-01"
+      }
+    ],
+    "expected_result": "FAIL"
+  },
+  {
+    "id": "SYNTHETIC-02-occupancy-guard-removed",
+    "family": "occupancy_guard_removed",
+    "label": "SYNTHETIC",
+    "state": {
+      "bedroom_light.power": "on",
+      "bedroom_occupancy": false
+    },
+    "assertions": [
+      {
+        "device_id": "bedroom_light",
+        "capability": "power",
+        "expected": "off",
+        "trace_event_id": "trace-syn-02"
+      }
+    ],
+    "expected_result": "FAIL"
+  },
+  {
+    "id": "SYNTHETIC-03-time-condition-changed",
+    "family": "time_or_mode_condition_changed",
+    "label": "SYNTHETIC",
+    "state": {
+      "thermostat.mode": "off"
+    },
+    "assertions": [
+      {
+        "device_id": "thermostat",
+        "capability": "mode",
+        "expected": "heat",
+        "trace_event_id": "trace-syn-03"
+      }
+    ],
+    "expected_result": "FAIL"
+  },
+  {
+    "id": "SYNTHETIC-04-event-ordering",
+    "family": "event_ordering",
+    "label": "SYNTHETIC",
+    "state": {
+      "front_door_lock.lock": "unlocked"
+    },
+    "assertions": [
+      {
+        "device_id": "front_door_lock",
+        "capability": "lock",
+        "expected": "locked",
+        "trace_event_id": "trace-syn-04"
+      }
+    ],
+    "expected_result": "FAIL"
+  },
+  {
+    "id": "SYNTHETIC-05-repair-breaks-another-requirement",
+    "family": "repair_breaks_another_requirement",
+    "label": "SYNTHETIC",
+    "state": {
+      "kitchen_light.power": "on"
+    },
+    "assertions": [
+      {
+        "device_id": "kitchen_light",
+        "capability": "power",
+        "expected": "off",
+        "trace_event_id": "trace-syn-05"
+      }
+    ],
+    "expected_result": "FAIL"
+  },
+  {
+    "id": "SYNTHETIC-06-unknown-sensor",
+    "family": "unknown_sensor_state",
+    "label": "SYNTHETIC",
+    "state": {
+      "hallway_light.power": "UNKNOWN"
+    },
+    "assertions": [
+      {
+        "device_id": "hallway_light",
+        "capability": "power",
+        "expected": "off",
+        "trace_event_id": "trace-syn-06"
+      }
+    ],
+    "expected_result": "INCONCLUSIVE"
+  },
+  {
+    "id": "SYNTHETIC-07-ambiguous-correction",
+    "family": "ambiguous_correction",
+    "label": "SYNTHETIC",
+    "state": {},
+    "assertions": [],
+    "expected_result": "INCONCLUSIVE"
+  },
+  {
+    "id": "SYNTHETIC-08-unsupported-device",
+    "family": "unsupported_device_or_capability",
+    "label": "SYNTHETIC",
+    "state": {},
+    "assertions": [
+      {
+        "device_id": "garage_door",
+        "capability": "open",
+        "expected": "closed",
+        "trace_event_id": "trace-syn-08"
+      }
+    ],
+    "expected_result": "INCONCLUSIVE"
+  },
+  {
+    "id": "SYNTHETIC-09-missing-evidence",
+    "family": "missing_evidence",
+    "label": "SYNTHETIC",
+    "state": {},
+    "assertions": [
+      {
+        "device_id": "living_room_light",
+        "capability": "power",
+        "expected": "off",
+        "trace_event_id": "trace-syn-09"
+      }
+    ],
+    "expected_result": "INCONCLUSIVE"
+  },
+  {
+    "id": "SYNTHETIC-10-malformed-assertion",
+    "family": "malformed_ai_output",
+    "label": "SYNTHETIC",
+    "state": {
+      "hallway_light.power": "off"
+    },
+    "assertions": [
+      {
+        "device_id": "hallway_light"
+      }
+    ],
+    "expected_result": "INCONCLUSIVE"
+  },
+  {
+    "id": "SYNTHETIC-11-valid-matching-state",
+    "family": "valid_assertion_baseline",
+    "label": "SYNTHETIC",
+    "state": {
+      "living_room_light.power": "off"
+    },
+    "assertions": [
+      {
+        "device_id": "living_room_light",
+        "capability": "power",
+        "expected": "off",
+        "trace_event_id": "trace-syn-11"
+      }
+    ],
+    "expected_result": "PASS"
+  },
+  {
+    "id": "SYNTHETIC-12-conflicting-repair-values",
+    "family": "repair_invalid_value",
+    "label": "SYNTHETIC",
+    "state": {
+      "thermostat.target_temp": 99
+    },
+    "assertions": [
+      {
+        "device_id": "thermostat",
+        "capability": "target_temp",
+        "expected": 21,
+        "trace_event_id": "trace-syn-12"
+      }
+    ],
+    "expected_result": "FAIL"
+  }
+]
